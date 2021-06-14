@@ -1,0 +1,2 @@
+rootProject.name = 'rest-service'
+include 'rest-hello'
