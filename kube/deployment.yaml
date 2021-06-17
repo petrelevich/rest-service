@@ -19,9 +19,26 @@ spec:
         app: rest-hello
     spec:
       containers:
-        - image: registry.gitlab.com/petrelevich/dockerregistry/rest-hello:v2
+        - image: registry.gitlab.com/petrelevich/dockerregistry/rest-hello:v4
           name: rest-hello
           ports:
             - containerPort: 8080
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8090
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8090
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+            initialDelaySeconds: 10
       imagePullSecrets:
         - name: regcred
