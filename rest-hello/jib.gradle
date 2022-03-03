@@ -4,7 +4,7 @@ jib {
         image = 'bellsoft/liberica-openjdk-alpine-musl:17.0.1-12'
     }
     to {
-        tags = ['v6', 'latest']
+        tags = ['v9', 'latest']
         image = 'registry.gitlab.com/petrelevich/dockerregistry/rest-hello'
         auth {
             username = gitlabUser
@@ -12,7 +12,7 @@ jib {
         }
     }
 }
-// ./gradlew jibDockerBuild
+// ./gradlew jib
 
 //docker login registry.gitlab.com
 //docker run -p 8080:8080 registry.gitlab.com/petrelevich/dockerregistry/rest-hello

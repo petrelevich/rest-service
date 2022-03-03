@@ -20,7 +20,7 @@ public class IndexController {
     }
 
     @PostMapping("/response/{name}")
-    public Response response(@PathVariable("name") String name, @RequestBody Request params) throws UnknownHostException {
+    public Response response(@PathVariable("name") String name, @RequestBody Request params)  {
         return new Response(name, String.format("%s-%s", params.param1(), params.param2()));
     }
 }
