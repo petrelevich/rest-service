@@ -4,8 +4,8 @@ jib {
         image = 'bellsoft/liberica-openjdk-alpine-musl:17.0.2-9'
     }
     to {
-        tags = ['v10', 'latest']
-        image = 'registry.gitlab.com/petrelevich/dockerregistry/rest-hello'
+        tags = ["${project.version}"]
+        image = "registry.gitlab.com/petrelevich/dockerregistry/${project.name}"
         auth {
             username = gitlabUser
             password = gitlabPassword
