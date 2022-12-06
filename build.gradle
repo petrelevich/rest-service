@@ -1,9 +1,10 @@
 plugins {
     id 'idea'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'org.springframework.boot' version '2.6.6' apply false
-    id 'com.google.cloud.tools.jib' version '3.2.1' apply false
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version '3.0.0' apply false
+    id 'com.google.cloud.tools.jib' version '3.3.1' apply false
     id 'io.freefair.lombok' version '6.4.2' apply false
+    id "fr.brouillard.oss.gradle.jgitver" version "0.10.0-rc03" apply false
 }
 
 idea {
@@ -27,7 +28,7 @@ allprojects {
     dependencyManagement {
         dependencies {
             imports {
-                mavenBom("org.springframework.boot:spring-boot-dependencies:2.6.6")
+                mavenBom("org.springframework.boot:spring-boot-dependencies:3.0.0")
             }
         }
     }
