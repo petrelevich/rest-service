@@ -15,7 +15,9 @@ dependencies {
 
 tasks {
     jib {
-        container.creationTime = "USE_CURRENT_TIMESTAMP"
+        container {
+            creationTime.set("USE_CURRENT_TIMESTAMP")
+        }
         from {
             image = "bellsoft/liberica-openjdk-alpine-musl:17.0.2-9"
         }
