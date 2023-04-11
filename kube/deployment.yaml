@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: rest-hello-deployment
 spec:
-  replicas: 5
+  replicas: 2
   selector:
     matchLabels:
       app: rest-hello
@@ -19,7 +19,7 @@ spec:
         app: rest-hello
     spec:
       containers:
-        - image: registry.gitlab.com/petrelevich/dockerregistry/rest-hello:1.0.0
+        - image: registry.gitlab.com/petrelevich/dockerregistry/rest-hello:1.0.1-2.3546731e-SNAPSHOT
           name: rest-hello
           ports:
             - containerPort: 8080
@@ -41,4 +41,4 @@ spec:
             timeoutSeconds: 1
             initialDelaySeconds: 10
       imagePullSecrets:
-        - name: regcred-loc
+        - name: regcred
