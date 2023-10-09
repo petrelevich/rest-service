@@ -19,7 +19,7 @@ spec:
         app: rest-hello
     spec:
       containers:
-        - image: registry.gitlab.com/petrelevich/dockerregistry/rest-hello:2.0.0
+        - image: registry.gitlab.com/petrelevich/dockerregistry/rest-hello:2.0.1-1-main
           name: rest-hello
           ports:
             - containerPort: 8080

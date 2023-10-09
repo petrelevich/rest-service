@@ -1,7 +1,3 @@
 package ru.petrelevich.controller;
 
-
-public record Request(String param1, String param2) {
-
-}
-
+public record Request(String param1, String param2) {}
