@@ -19,7 +19,7 @@ tasks {
             creationTime.set("USE_CURRENT_TIMESTAMP")
         }
         from {
-            image = "bellsoft/liberica-openjdk-alpine-musl:17.0.2-9"
+            image = "bellsoft/liberica-openjdk-alpine-musl:21.0.1"
         }
         to {
             tags = setOf(project.version.toString())

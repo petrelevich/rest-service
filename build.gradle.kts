@@ -17,7 +17,7 @@ plugins {
 
 idea {
     project {
-        languageLevel = IdeaLanguageLevel(17)
+        languageLevel = IdeaLanguageLevel(21)
     }
     module {
         isDownloadJavadoc = true
@@ -78,8 +78,8 @@ allprojects {
 
     plugins.apply(JavaPlugin::class.java)
     extensions.configure<JavaPluginExtension> {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     plugins.apply(JGitverPlugin::class.java)
