@@ -19,10 +19,18 @@ spec:
         app: rest-hello
     spec:
       containers:
-        - image: registry.gitlab.com/petrelevich/dockerregistry/rest-hello:2.0.1
+        - image: registry.gitlab.com/petrelevich/dockerregistry/rest-hello:2.0.2-1.2d40be46.dirty-SNAPSHOT
           name: rest-hello
           ports:
             - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: rest-service-config
+          resources:
+            requests:
+              memory: "256M"
+            limits:
+              memory: "256M"
           readinessProbe:
             failureThreshold: 3
             httpGet:
