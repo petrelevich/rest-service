@@ -4,6 +4,7 @@ import org.gradle.plugins.ide.idea.model.IdeaLanguageLevel
 import org.gradle.api.plugins.JavaPluginExtension
 import fr.brouillard.oss.gradle.plugins.JGitverPluginExtension
 import fr.brouillard.oss.gradle.plugins.JGitverPlugin
+import name.remal.gradle_plugins.sonarlint.SonarLintExtension
 
 plugins {
     idea
@@ -47,10 +48,11 @@ allprojects {
         resolutionStrategy {
             failOnVersionConflict()
 
-            force("com.google.guava:guava:32.1.2-jre")
-            force("org.sonarsource.analyzer-commons:sonar-analyzer-commons:2.3.0.1263")
-            force("com.google.code.findbugs:jsr305:3.0.2")
-            force("org.sonarsource.sslr:sslr-core:1.24.0.633")
+            force("commons-io:commons-io:2.16.1")
+            force("org.eclipse.jgit:org.eclipse.jgit:6.9.0.202403050737-r")
+            force("org.apache.commons:commons-compress:1.26.1")
+            force("com.google.errorprone:error_prone_annotations:2.28.0")
+            force("org.jetbrains:annotations:19.0.0")
         }
     }
 
@@ -60,10 +62,17 @@ allprojects {
     }
 
     apply<name.remal.gradle_plugins.sonarlint.SonarLintPlugin>()
+    configure<SonarLintExtension> {
+        nodeJs {
+            detectNodeJs = false
+            logNodeJsNotFound = false
+        }
+    }
+
     apply<com.diffplug.gradle.spotless.SpotlessPlugin>()
     configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         java {
-            palantirJavaFormat("2.38.0")
+            palantirJavaFormat("2.50.0")
         }
     }
 
